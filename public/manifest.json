@@ -1,5 +1,5 @@
 {
-  "name": "animefluency",
+  "name": "AnimeFluency",
   "manifest_version": 3,
   "version": "1.0.0",
   "action": {
@@ -20,7 +20,7 @@
     {
       "resources": [
         "webapp.html",
-        "/assets/*",
+        "/assets/*"
       ],
       "matches": ["https://static.crunchyroll.com/vilos-v2/web/vilos/player.html"]
     }

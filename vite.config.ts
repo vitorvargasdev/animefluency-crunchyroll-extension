@@ -14,6 +14,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        webapp: resolve(__dirname, 'webapp.html'),
         player: resolve(__dirname, "./src/player/main.ts"),
         contentScript: resolve(__dirname, "./src/content-scripts/index.ts"),
       },
