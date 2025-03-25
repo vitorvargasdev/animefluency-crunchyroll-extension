@@ -1,23 +1,31 @@
-import { inject } from './injection'
+import { inject } from "./injection";
 
-export const runContentScript = async () => {
-  const player: HTMLVideoElement = document.getElementById('player0') as HTMLVideoElement
-  
-  const app = document.getElementById('app')
+let observer: MutationObserver | null = null;
 
-  if (app && app.childElementCount >= 0) {
-    setTimeout(runContentScript, 15000)
-    return
-  }
+const checkElements = () => {
+  const app = document.getElementById('app');
+  return !!app && app.childElementCount > 0;
+};
 
-  if (!player && !self) {
-    setTimeout(runContentScript, 15000)
-    return
-  }
+const startObservation = () => {
+  observer = new MutationObserver(async (mutations) => {
+    const changedVideo = "display: flex; height: 100%; width: 100%;";
+    const isStyle = mutations[0].attributeName === "style";
+    const isChangedVideo = (mutations[0].target as HTMLElement).getAttribute("style") === changedVideo;
 
-  console.log('run')
-  await inject()
-  setTimeout(runContentScript, 15000)
-}
+    if (isStyle && isChangedVideo && !checkElements()) {
+      console.log('video loaded');
+      console.log('not injected yet');
+      await inject();
+    }
+  });
 
-runContentScript()
+  const vilosControlsContainer = document.getElementById(
+    "player0",
+  ) as HTMLElement;
+  observer.observe(vilosControlsContainer, {
+    attributes: true,
+  });
+};
+
+startObservation();
