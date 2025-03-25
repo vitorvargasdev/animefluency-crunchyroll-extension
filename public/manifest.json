@@ -1,0 +1,29 @@
+{
+  "name": "animefluency",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "webapp.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://static.crunchyroll.com/vilos-v2/web/vilos/player.html"],
+      "js": ["./assets/contentScript.js"],
+      "all_frames": true
+    }
+  ],
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://static.crunchyroll.com/vilos-v2/web/vilos/player.html"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "webapp.html",
+        "/assets/*",
+      ],
+      "matches": ["https://static.crunchyroll.com/vilos-v2/web/vilos/player.html"]
+    }
+  ]
+}
+
