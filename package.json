@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "watch": "vite build --watch"
   },
   "dependencies": {
+    "pinia": "^3.0.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -16,7 +16,7 @@
     "@tailwindcss/vite": "^4.0.17",
     "@types/chrome": "^0.0.310",
     "@types/node": "^22.13.13",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^4.2.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.23.0",
     "eslint-plugin-vue": "^10.0.0",
