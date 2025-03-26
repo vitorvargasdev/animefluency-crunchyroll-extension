@@ -6,7 +6,7 @@ export const inject = async (): Promise<void> => {
   const css: HTMLLinkElement = document.createElement('link')
   css.rel = 'stylesheet'
   css.id = 'app-css'
-  css.href = chrome.runtime.getURL('/assets/main.css?timestamp=' + timestamp)
+  css.href = chrome.runtime.getURL('/assets/player.css?timestamp=' + timestamp)
   head?.appendChild(css)
 
   const div: HTMLDivElement = document.createElement('div')
