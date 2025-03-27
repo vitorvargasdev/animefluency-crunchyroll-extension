@@ -6,6 +6,10 @@ const playerStore = usePlayerStore();
 
 onMounted(() => {
   playerStore.load();
+
+  setInterval(() => {
+    playerStore.togglePlay()
+  }, 2000);
 });
 </script>
 

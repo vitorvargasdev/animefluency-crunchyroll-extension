@@ -46,5 +46,13 @@ export const usePlayerStore = defineStore("player", {
     pause() {
       this.playerElement!.pause();
     },
+    togglePlay() {
+      if (this.state === States.PAUSED) {
+        this.play();
+        return;
+      }
+
+      this.pause();
+    },
   },
 });
