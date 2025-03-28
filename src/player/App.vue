@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { usePlayerStore } from "./stores";
+import { usePlayerStore, useAnimeStore } from "./stores";
 import { onMounted } from "vue";
 
 const playerStore = usePlayerStore();
+const animeStore = useAnimeStore();
 
 onMounted(() => {
   playerStore.load();
-
-  setInterval(() => {
-    playerStore.togglePlay()
-  }, 2000);
+  animeStore.startAnimeHandler();
 });
 </script>
 
