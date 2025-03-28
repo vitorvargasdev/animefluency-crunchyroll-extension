@@ -24,7 +24,9 @@ export const useAnimeStore = defineStore("anime", {
       this.animeObserver();
     },
     getAnime() {
-      const { metadata } = this.crunchyrollMedia();
+      const media = this.crunchyrollMedia();
+      const { metadata } = media;
+      console.log(media);
 
       const animeData = {
         series_id: metadata.series_id,
